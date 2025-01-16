@@ -43,5 +43,7 @@ public class Main {
         logger.info("**** Computing path ****");
         logger.info("PATH NOT COMPUTED");
         logger.info("** End of MazeRunner **");
-    }
-}
+
+    } // end of main method
+
+} // end of Main class
