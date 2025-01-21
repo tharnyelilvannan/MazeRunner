@@ -2,6 +2,7 @@ package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -17,6 +18,7 @@ public class Main {
 
         Options options = new Options();
         options.addOption("i", true, "MAZE_FILE");
+        options.addOption("p", true, "VERIFY");
         CommandLineParser parser = new DefaultParser();
 
         logger.info("** Starting Maze Runner **");
@@ -24,6 +26,7 @@ public class Main {
             CommandLine cmd = parser.parse(options, args);
             if (cmd.hasOption("i")) {
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
+                Maze maze = new Maze(args[1], logger);
                 BufferedReader reader = new BufferedReader(new FileReader(args[1]));
                 String line;
                 while ((line = reader.readLine()) != null) {
