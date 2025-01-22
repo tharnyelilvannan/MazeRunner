@@ -26,18 +26,18 @@ public class Main {
             CommandLine cmd = parser.parse(options, args);
             if (cmd.hasOption("i")) {
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
-                Maze maze = new Maze(args[1], logger);
                 BufferedReader reader = new BufferedReader(new FileReader(args[1]));
+                Maze maze = new Maze(logger, reader);
                 String line;
                 while ((line = reader.readLine()) != null) {
                     for (int idx = 0; idx < line.length(); idx++) {
                         if (line.charAt(idx) == '#') {
-                            System.out.print("WALL ");
+                            System.out.println("WALL ");
                         } else if (line.charAt(idx) == ' ') {
-                            System.out.print("PASS ");
+                            System.out.println("PASS ");
                         }
                     }
-                    System.out.print(System.lineSeparator());
+                    System.out.println(System.lineSeparator());
                 }
             }
         } catch (Exception e) {
