@@ -1,5 +1,7 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
+import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
+
 public class Explorer {
 
     public Explorer() {
