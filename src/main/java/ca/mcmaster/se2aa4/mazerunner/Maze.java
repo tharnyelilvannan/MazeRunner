@@ -20,17 +20,15 @@ public class Maze {
         // this is printing it sideways
         try {
             while ((line = reader.readLine()) != null) {
-                System.out.println(k);
-                maze.add(new ArrayList<Integer>());
-                System.out.println(k);
+                maze.add(new ArrayList<>());
                 for (int i = 0; i < line.length(); i++) {
                     if (line.charAt(i) == '#') {
                         maze.get(k).add(1);
                     } else if (line.charAt(i) == ' ') {
                         maze.get(k).add(0);
                     }
-                    k++;
                 }
+                k++;
             }
             
             for (int i = 0; i < maze.size(); i++) {
