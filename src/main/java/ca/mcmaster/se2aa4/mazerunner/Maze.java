@@ -1,6 +1,7 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.BufferedReader;
+import java.util.ArrayList;
 import org.apache.logging.log4j.Logger;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -8,24 +9,33 @@ import java.util.ArrayList;
 public class Maze {
 
     private Explorer explorer = new Explorer();
-    private ArrayList<ArrayList<Integer>>  maze = new ArrayList<>();
+    private ArrayList<ArrayList<Integer>> maze = new ArrayList<>();
 
+    @SuppressWarnings({"UseSpecificCatch", "Convert2Diamond"})
     public Maze(Logger logger, BufferedReader reader) {
 
         String line;
+        int k = 0;
 
+        // this is printing it sideways
         try {
             while ((line = reader.readLine()) != null) {
+                System.out.println(k);
+                maze.add(new ArrayList<Integer>());
+                System.out.println(k);
                 for (int i = 0; i < line.length(); i++) {
-                    maze.add(new ArrayList<Integer>());
                     if (line.charAt(i) == '#') {
-                        maze.get(i).add(1);
+                        maze.get(k).add(1);
                     } else if (line.charAt(i) == ' ') {
-                        maze.get(i).add(0);
+                        maze.get(k).add(0);
                     }
+                    k++;
                 }
             }
-            System.out.println(maze);
+            
+            for (int i = 0; i < maze.size(); i++) {
+                System.out.println(maze.get(i));
+            }
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
