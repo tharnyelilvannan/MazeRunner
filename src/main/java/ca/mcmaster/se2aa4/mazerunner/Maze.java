@@ -46,6 +46,8 @@ public class Maze {
             logger.error(e.getMessage());
 
         }
+
+        explorer.identifyEntryPoint(maze);
                 
     } // end of Maze constructor method
 

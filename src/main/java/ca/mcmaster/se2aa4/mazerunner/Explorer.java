@@ -1,6 +1,7 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
+import java.util.ArrayList;
 
 public class Explorer {
 
@@ -16,5 +17,19 @@ public class Explorer {
     public String factorizePath(String path) {
         return "";
     } // end of factorize path method
+
+    public ArrayList<Integer> identifyEntryPoint(ArrayList<ArrayList<Integer>> maze) {
+
+        ArrayList entryPoints = new ArrayList<Integer>();
+        
+        for (int i = 0; i < maze.size(); i++) {
+            if (maze.get(i).get(0) == 0) {
+                entryPoints.add(i);
+            }
+        }
+
+        return entryPoints;
+
+    } // end of identifyEntryPoint method
 
 } // end of Explorer class
