@@ -17,7 +17,6 @@ public class Maze {
         String line;
         int k = 0;
 
-        // this is printing it sideways
         try {
             while ((line = reader.readLine()) != null) {
                 maze.add(new ArrayList<>());
