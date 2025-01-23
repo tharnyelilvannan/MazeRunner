@@ -18,33 +18,47 @@ public class Maze {
         int k = 0;
 
         try {
+
             while ((line = reader.readLine()) != null) {
+
                 maze.add(new ArrayList<>());
+
                 for (int i = 0; i < line.length(); i++) {
+
                     if (line.charAt(i) == '#') {
                         maze.get(k).add(1);
                     } else if (line.charAt(i) == ' ') {
                         maze.get(k).add(0);
                     }
+
                 }
+
                 k++;
+
             }
             
             for (int i = 0; i < maze.size(); i++) {
                 System.out.println(maze.get(i));
             }
+
         } catch (Exception e) {
+
             logger.error(e.getMessage());
+
         }
                 
     } // end of Maze constructor method
 
     public ArrayList<ArrayList<Integer>> getMaze() {
+
         return maze;
+
     } // end of getMaze method
 
     public String calculatePath() {
+
         return "";
+        
     }
     
 } // end of Maze class
