@@ -37,9 +37,7 @@ public class Maze {
 
             }
             
-            for (int i = 0; i < maze.size(); i++) {
-                System.out.println(maze.get(i));
-            }
+            logger.info("** Maze successfully read **");
 
         } catch (Exception e) {
 
