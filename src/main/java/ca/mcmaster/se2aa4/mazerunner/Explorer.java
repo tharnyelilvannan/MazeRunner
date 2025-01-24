@@ -10,8 +10,18 @@ public class Explorer {
     } // end of Explorer constructor method
 
     // returns canonical path
-    public String explore(Maze maze) {
-        return "";
+    public String explore(ArrayList<ArrayList<Integer>> maze, ArrayList<Integer> entryPoints) {
+        String path = "";
+
+        // does only the straight path 
+        for (int i = 0; i < maze.size(); i++) {
+            if (maze.get(entryPoints.get(0)).get(i) == 0) {
+                path = path + "F";
+            }
+        }
+
+        return path;
+
     } // end of explore method
 
     public String factorizePath(String path) {

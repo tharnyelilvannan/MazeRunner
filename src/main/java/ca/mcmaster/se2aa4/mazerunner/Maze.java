@@ -45,7 +45,8 @@ public class Maze {
 
         }
 
-        explorer.identifyEntryPoint(maze);
+        ArrayList<Integer> entryPoints = explorer.identifyEntryPoint(maze);
+        logger.info("The path is " + explorer.explore(maze, entryPoints));
                 
     } // end of Maze constructor method
 
