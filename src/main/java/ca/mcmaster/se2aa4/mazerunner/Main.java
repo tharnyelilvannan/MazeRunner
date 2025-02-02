@@ -22,27 +22,44 @@ public class Main {
         CommandLineParser parser = new DefaultParser();
 
         logger.info("** Starting Maze Runner **");
+
         try {
+
             CommandLine cmd = parser.parse(options, args);
+
             if (cmd.hasOption("i")) {
+
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
+
                 BufferedReader reader = new BufferedReader(new FileReader(args[1]));
-                Maze maze = new Maze(logger, reader);
                 String line;
+
                 while ((line = reader.readLine()) != null) {
+
                     for (int idx = 0; idx < line.length(); idx++) {
+
                         if (line.charAt(idx) == '#') {
                             System.out.print("WALL ");
                         } else if (line.charAt(idx) == ' ') {
                             System.out.print("PASS ");
                         }
+
                     }
+
                     System.out.print(System.lineSeparator());
+
                 }
             }
+            else if (cmd.hasOption("p")) {
+
+            }
+
         } catch (Exception e) {
+
             logger.error("/!\\ An error has occured /!\\");
+
         }
+
         logger.info("**** Computing path ****");
         logger.info("PATH NOT COMPUTED");
         logger.info("** End of MazeRunner **");

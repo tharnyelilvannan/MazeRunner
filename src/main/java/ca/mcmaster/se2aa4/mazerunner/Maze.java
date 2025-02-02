@@ -37,6 +37,7 @@ public class Maze {
 
             }
             
+            System.out.println(maze);
             logger.info("** Maze successfully read **");
 
         } catch (Exception e) {
@@ -46,7 +47,7 @@ public class Maze {
         }
 
         ArrayList<Integer> entryPoints = explorer.identifyEntryPoint(maze);
-        logger.info("The path is " + explorer.explore(maze, entryPoints));
+        System.out.println("The path is " + explorer.explore(maze, entryPoints));
                 
     } // end of Maze constructor method
 
@@ -62,4 +63,4 @@ public class Maze {
         
     }
     
-} // end of Maze class
+} // end of Maze class,9pioi

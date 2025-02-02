@@ -3,7 +3,7 @@ package main.java.ca.mcmaster.se2aa4.mazerunner;
 import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
 import java.util.ArrayList;
 
-public class Explorer {
+class Explorer {
 
     public Explorer() {
 
@@ -23,10 +23,6 @@ public class Explorer {
         return path;
 
     } // end of explore method
-
-    public String factorizePath(String path) {
-        return "";
-    } // end of factorize path method
 
     public ArrayList<Integer> identifyEntryPoint(ArrayList<ArrayList<Integer>> maze) {
 
