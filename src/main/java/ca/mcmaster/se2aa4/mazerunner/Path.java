@@ -10,4 +10,12 @@ public class Path {
     public String getPath() {
         return path;
     }
+
+    public void factorizePath() {
+
+    }
+
+    public void validatePath(String path) {
+        
+    }
 }

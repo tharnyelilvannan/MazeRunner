@@ -56,11 +56,5 @@ public class Maze {
         return maze;
 
     } // end of getMaze method
-
-    public String calculatePath() {
-
-        return "";
-        
-    }
     
-} // end of Maze class,9pioi
+} // end of Maze class

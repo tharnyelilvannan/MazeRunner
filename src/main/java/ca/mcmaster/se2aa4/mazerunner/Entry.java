@@ -14,6 +14,13 @@ public class Entry extends MazeLocation {
 
     public void findEntry(Maze maze) {
         ArrayList<Integer> entryPoint = new ArrayList<>();
+
+        for (int i = 0; i < maze.getMaze().get(0).size(); i++) {
+            if (maze.getMaze().get(i).get(0) instanceof Pass) {
+                entryPoint.add(i);
+            }
+        }
+
         this.setPoint(entryPoint);
     }
 }
