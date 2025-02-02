@@ -2,22 +2,24 @@ package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
-import org.apache.logging.log4j.Logger;
 import java.io.FileReader;
 import java.util.ArrayList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Maze {
 
-    private Explorer explorer = new Explorer();
-    private ArrayList<ArrayList<Integer>> maze = new ArrayList<>();
+    private ArrayList<ArrayList<MazeComposition>> maze = new ArrayList<>();
+    private static final Logger logger = LogManager.getLogger();
 
-    @SuppressWarnings({"UseSpecificCatch", "Convert2Diamond"})
-    public Maze(Logger logger, BufferedReader reader) {
+    public Maze(String file) {
 
         String line;
         int k = 0;
 
         try {
+
+            BufferedReader reader = new BufferedReader(new FileReader(file));
 
             while ((line = reader.readLine()) != null) {
 
@@ -26,9 +28,11 @@ public class Maze {
                 for (int i = 0; i < line.length(); i++) {
 
                     if (line.charAt(i) == '#') {
-                        maze.get(k).add(1);
+                        MazeComposition mazePart = new Wall();
+                        maze.get(k).add(mazePart);
                     } else if (line.charAt(i) == ' ') {
-                        maze.get(k).add(0);
+                        MazeComposition mazePart = new Pass();
+                        maze.get(k).add(mazePart);
                     }
 
                 }
@@ -37,7 +41,6 @@ public class Maze {
 
             }
             
-            System.out.println(maze);
             logger.info("** Maze successfully read **");
 
         } catch (Exception e) {
@@ -45,13 +48,10 @@ public class Maze {
             logger.error(e.getMessage());
 
         }
-
-        ArrayList<Integer> entryPoints = explorer.identifyEntryPoint(maze);
-        System.out.println("The path is " + explorer.explore(maze, entryPoints));
                 
     } // end of Maze constructor method
 
-    public ArrayList<ArrayList<Integer>> getMaze() {
+    public ArrayList<ArrayList<MazeComposition>> getMaze() {
 
         return maze;
 

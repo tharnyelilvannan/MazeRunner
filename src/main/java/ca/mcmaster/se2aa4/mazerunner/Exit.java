@@ -1,7 +1,7 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 import java.util.ArrayList;
 
-class Exit extends MazeLocation {
+public class Exit extends MazeLocation {
 
     public ArrayList<Integer> getPoint() {
         return point;

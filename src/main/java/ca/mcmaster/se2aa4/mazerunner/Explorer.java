@@ -1,41 +1,21 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Entry;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Exit;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Path;
+
 import java.util.ArrayList;
 
-class Explorer {
-
-    public Explorer() {
-
-    } // end of Explorer constructor method
+public class Explorer {
 
     // returns canonical path
-    public String explore(ArrayList<ArrayList<Integer>> maze, ArrayList<Integer> entryPoints) {
-        String path = "";
+    public void explore(Maze maze, Entry entryPoint, Exit exitPoint, Path path)
+    {
+        String canonPath = "";
 
-        // does only the straight path 
-        for (int i = 0; i < maze.size(); i++) {
-            if (maze.get(entryPoints.get(0)).get(i) == 0) {
-                path = path + "F";
-            }
-        }
-
-        return path;
+        path.setPath(canonPath);
 
     } // end of explore method
-
-    public ArrayList<Integer> identifyEntryPoint(ArrayList<ArrayList<Integer>> maze) {
-
-        ArrayList entryPoints = new ArrayList<Integer>();
-        
-        for (int i = 0; i < maze.size(); i++) {
-            if (maze.get(i).get(0) == 0) {
-                entryPoints.add(i);
-            }
-        }
-
-        return entryPoints;
-
-    } // end of identifyEntryPoint method
 
 } // end of Explorer class

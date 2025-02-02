@@ -2,7 +2,14 @@ package ca.mcmaster.se2aa4.mazerunner;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+
 import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Entry;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Exit;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Path;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Explorer;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -49,6 +56,18 @@ public class Main {
                     System.out.print(System.lineSeparator());
 
                 }
+
+                Maze maze = new Maze(args[1]);
+                Entry entry = new Entry();
+                entry.findEntry(maze);
+                ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
+                Exit exit = new Exit();
+                exit.findExit(maze);
+                ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
+                Explorer explorer = new Explorer();
+                Path path = new Path();
+                explorer.explore(maze, entry, exit, path);
+                System.out.println(path.getPath());
             }
             else if (cmd.hasOption("p")) {
 
