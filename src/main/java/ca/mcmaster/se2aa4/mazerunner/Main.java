@@ -26,6 +26,7 @@ public class Main {
         Options options = new Options();
         options.addOption("i", true, "MAZE_FILE");
         options.addOption("p", true, "VERIFY");
+        options.addOption("help", true, "HELP");
         CommandLineParser parser = new DefaultParser();
 
         logger.info("** Starting Maze Runner **");
@@ -34,7 +35,12 @@ public class Main {
 
             CommandLine cmd = parser.parse(options, args);
 
-            if (cmd.hasOption("i")) {
+            if (cmd.hasOption("help")) {
+                System.out.println("USAGE: java -jar target/mazerunner -i [file path]");
+                System.out.println("i takes a maze as input and outputs a path.");
+                System.out.println("p verifies a path");
+            }
+            else if (cmd.hasOption("i")) {
 
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
 
