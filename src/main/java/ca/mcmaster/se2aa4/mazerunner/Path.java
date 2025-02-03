@@ -15,7 +15,6 @@ public class Path {
         String factorizedPath = "";
         String lastCharacter = Character.toString(this.path.charAt(0));
         int count = 0;
-
         for (int i = 0; i < this.path.length(); i++) {
             if (Character.toString(this.path.charAt(i)).equals("F")) {
                 if (lastCharacter.equals("F")) {

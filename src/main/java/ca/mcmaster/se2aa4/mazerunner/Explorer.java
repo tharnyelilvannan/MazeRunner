@@ -13,6 +13,7 @@ public class Explorer {
     public void explore(Maze maze, Entry entryPoint, Exit exitPoint, Path path) throws Exception
     {
         String canonPath = "";
+        Direction direction = Direction.EAST;
 
         ArrayList<Integer> entry = new ArrayList<>(entryPoint.getPoint());
         ArrayList<Integer> exit = new ArrayList<>(exitPoint.getPoint());
@@ -24,15 +25,20 @@ public class Explorer {
         
         int row = entry.get(0);
         int col = 0;
-        System.out.println(row);
+
         ArrayList<Integer> currentPosition = new ArrayList<>();
         currentPosition.add(row);
         currentPosition.add(col);
 
-        while (!(currentPosition.get(0) == exit.get(0)) && !(currentPosition.get(1) == (maze.getMaze().size() - 1))) {
+        while (!(currentPosition.get(0) == exit.get(0)) && !(currentPosition.get(1) == (maze.getMaze().get(0).size() - 1))) {
+            System.out.println(currentPosition);
 
+            if (direction == direction.EAST) {
+                
+            }
         }
         
+        System.out.println(canonPath);
         path.setPath(canonPath);
 
     } // end of explore method
