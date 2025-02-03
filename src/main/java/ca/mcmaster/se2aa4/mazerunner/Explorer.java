@@ -18,4 +18,8 @@ public class Explorer {
 
     } // end of explore method
 
+    public void verifyPath(Maze maze, Entry entryPoint, Exit exit, String path) {
+        
+    }
+
 } // end of Explorer class
