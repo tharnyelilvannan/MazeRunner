@@ -71,9 +71,13 @@ public class Main {
                 exit.findExit(maze);
                 ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
                 Explorer explorer = new Explorer();
+                logger.info("**** Computing path ****");
                 Path path = new Path();
                 explorer.explore(maze, entry, exit, path);
-                System.out.println(path.getPath());
+                path.factorizePath();
+                System.out.println("Path: " + path.getPath());
+                logger.info("** End of MazeRunner **");
+
             }
             else if (cmd.hasOption("p")) {
 
@@ -85,10 +89,6 @@ public class Main {
             System.err.println(e.getMessage());
 
         }
-
-        logger.info("**** Computing path ****");
-        logger.info("PATH NOT COMPUTED");
-        logger.info("** End of MazeRunner **");
 
     } // end of main method
 

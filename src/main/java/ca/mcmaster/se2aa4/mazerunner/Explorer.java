@@ -21,7 +21,7 @@ public class Explorer {
             // if more than one entrance or exit
             throw new Exception("Invalid maze.");
         }
-
+        
         int row = entry.get(0);
         int col = 0;
         System.out.println(row);
@@ -32,7 +32,7 @@ public class Explorer {
         while (!(currentPosition.get(0) == exit.get(0)) && !(currentPosition.get(1) == (maze.getMaze().size() - 1))) {
 
         }
-    
+        
         path.setPath(canonPath);
 
     } // end of explore method
