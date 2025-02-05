@@ -12,11 +12,15 @@ public class Path {
     }
 
     public void factorizePath() {
+        
         String factorizedPath = "";
         String lastCharacter = Character.toString(this.path.charAt(0));
         int count = 0;
+
         for (int i = 0; i < this.path.length(); i++) {
+
             if (Character.toString(this.path.charAt(i)).equals("F")) {
+
                 if (lastCharacter.equals("F")) {
                     count++;
                 }
@@ -30,8 +34,10 @@ public class Path {
                     count = 1;
                     lastCharacter = "F";
                 }
+
             }
             else if (Character.toString(this.path.charAt(i)).equals("R")) {
+
                 if (lastCharacter.equals("R")) {
                     count++;
                 }
@@ -45,8 +51,10 @@ public class Path {
                     count = 1;
                     lastCharacter = "R";
                 }
+
             }
             else if (Character.toString(this.path.charAt(i)).equals("L")) {
+
                 if (lastCharacter.equals("L")) {
                     count++;
                 }
@@ -60,8 +68,8 @@ public class Path {
                     count = 1;
                     lastCharacter = "L";
                 }
+
             }
-            System.out.println(lastCharacter);
         }
 
         factorizedPath = factorizedPath + " " +  count + lastCharacter;

@@ -25,19 +25,118 @@ public class Explorer {
         
         int row = entry.get(0);
         int col = 0;
+        int exitRow = exit.get(0);
+        int exitCol = maze.getMaze().get(0).size() - 1;
 
         ArrayList<Integer> currentPosition = new ArrayList<>();
         currentPosition.add(row);
         currentPosition.add(col);
+        System.out.println(exitRow);
+        System.out.println(exitCol);
 
-        while (!(currentPosition.get(0) == exit.get(0)) && !(currentPosition.get(1) == (maze.getMaze().get(0).size() - 1))) {
+        while (currentPosition.get(0) != exitRow || currentPosition.get(1) != exitCol) {
+            System.out.println(direction);
             System.out.println(currentPosition);
+            try {
+                if (direction == Direction.EAST) {
 
-            if (direction == direction.EAST) {
-                
+                    if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) + 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) + 1);
+                        canonPath = canonPath + "F";
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0) + 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) + 1);
+                        canonPath = canonPath + "RF";
+                        direction = Direction.SOUTH;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0) - 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) - 1);
+                        canonPath = canonPath + "LF";
+                        direction = Direction.NORTH;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) - 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) - 1);
+                        canonPath = canonPath + "RRF";
+                        direction = Direction.WEST;
+                    }
+
+                }
+                else if (direction == Direction.SOUTH) {
+
+                    if (maze.getMaze().get(currentPosition.get(0) + 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) + 1);
+                        canonPath = canonPath + "F";
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) + 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) + 1);
+                        canonPath = canonPath + "LF";
+                        direction = Direction.EAST;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) - 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) - 1);
+                        canonPath = canonPath + "RF";
+                        direction = Direction.WEST;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0) - 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) - 1);
+                        canonPath = canonPath + "RRF";
+                        direction = Direction.NORTH;
+                    }
+
+                }
+                else if (direction == Direction.WEST) {
+
+                    if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) - 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) - 1);
+                        canonPath = canonPath + "F";
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0) - 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) - 1);
+                        canonPath = canonPath + "LF";
+                        direction = Direction.SOUTH;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0) + 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) + 1);
+                        canonPath = canonPath + "RF";
+                        direction = Direction.NORTH;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) + 1) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(1) + 1);
+                        canonPath = canonPath + "RRF";
+                        direction = Direction.EAST;
+                    }
+
+                }
+                else if (direction == Direction.NORTH) {
+
+                    if (maze.getMaze().get(currentPosition.get(0) - 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) - 1);
+                        canonPath = canonPath + "F";
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) - 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) - 1);
+                        canonPath = canonPath + "LF";
+                        direction = Direction.WEST;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0)).get(currentPosition.get(1) + 1) instanceof Pass) {
+                        currentPosition.set(1, currentPosition.get(1) + 1);
+                        canonPath = canonPath + "RF";
+                        direction = Direction.EAST;
+                    }
+                    else if (maze.getMaze().get(currentPosition.get(0) + 1).get(currentPosition.get(1)) instanceof Pass) {
+                        currentPosition.set(0, currentPosition.get(0) + 1);
+                        canonPath = canonPath + "RRF";
+                        direction = Direction.SOUTH;
+                    }
+
+                }
+            } catch (Exception e) {
+                direction = Direction.EAST;
             }
+
         }
         
+        canonPath = canonPath + "F";
         System.out.println(canonPath);
         path.setPath(canonPath);
 
