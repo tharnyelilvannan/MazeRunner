@@ -12,7 +12,7 @@ public class Entry extends MazeLocation {
         this.point = point;
     }
 
-    public void findEntry(Maze maze) {
+    public void findEntry(Maze maze) throws Exception {
         ArrayList<Integer> entryPoint = new ArrayList<>();
 
         for (int i = 0; i < maze.getMaze().get(0).size() - 1 ; i++) {
@@ -20,6 +20,13 @@ public class Entry extends MazeLocation {
                 entryPoint.add(i);
             }
         }
+
+        if (entryPoint.size() > 1) {
+            throw new Exception("Invalid maze. Multiple entry points.");
+        }
+
+        // point has coordinates (i, 0)
+        entryPoint.add(0);
 
         this.setPoint(entryPoint);
     }
