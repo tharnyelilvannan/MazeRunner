@@ -20,7 +20,7 @@ public class Exit extends MazeLocation {
         ArrayList<Integer> exitPoint = new ArrayList<>();
 
         // get all exits for the maze
-        for (int i = 0; i < maze.getMaze().get(0).size() - 1; i++) {
+        for (int i = 0; i < maze.getMaze().size() - 1; i++) {
             if (maze.getMaze().get(i).get(maze.getMaze().get(0).size() - 1).getCanPass()) {
                 exitPoint.add(i);
             }

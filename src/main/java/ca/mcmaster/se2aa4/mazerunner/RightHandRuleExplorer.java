@@ -10,7 +10,6 @@ public class RightHandRuleExplorer extends Explorer {
         String canonPath = "";
 
         Compass compass = new Compass();
-
         ArrayList<Integer> entry = new ArrayList<>(entryPoint.getPoint());
         ArrayList<Integer> exit = new ArrayList<>(exitPoint.getPoint());
        
@@ -36,6 +35,7 @@ public class RightHandRuleExplorer extends Explorer {
         currentCol++;
 
         // explore until end of maze
+        // algorithm partially inspired by: https://cs.stanford.edu/people/eroberts/courses/cs106b/handouts/16-RecursiveBacktracking.pdf
         while (currentRow != exitRow || currentCol != exitCol) {
 
             try {
@@ -48,6 +48,7 @@ public class RightHandRuleExplorer extends Explorer {
                     south = maze.getMaze().get(currentRow + 1).get(currentCol).getCanPass();
                     west = maze.getMaze().get(currentRow).get(currentCol - 1).getCanPass();
 
+                    // follow right hand rule
                     if (rightHandWall == Direction.SOUTH && !south && east) {
                         currentCol++;
                         canonPath = canonPath + "F";
@@ -104,7 +105,6 @@ public class RightHandRuleExplorer extends Explorer {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-
 
         } // end of while loop
 
