@@ -18,6 +18,10 @@ import org.apache.commons.cli.Options;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+// Author: Tharny Elilvannan
+// Maze Runner
+// Assignment 1 SFWRENG 2AA4
+
 public class Main {
 
     private static final Logger logger = LogManager.getLogger();
