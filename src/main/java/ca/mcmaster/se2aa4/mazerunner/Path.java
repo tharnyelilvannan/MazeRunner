@@ -1,15 +1,20 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 public class Path {
+
     private String path = "";
 
     public void setPath(String path) {
+
         this.path = path;
-    }
+
+    } // end of setPath method
 
     public String getPath() {
+
         return path;
-    }
+
+    } // end of getPath method
 
     public void factorizePath() {
         
@@ -17,6 +22,7 @@ public class Path {
         String lastCharacter = Character.toString(this.path.charAt(0));
         int count = 0;
 
+        // factorizes each character
         for (int i = 0; i < this.path.length(); i++) {
 
             if (Character.toString(this.path.charAt(i)).equals("F")) {
@@ -72,13 +78,11 @@ public class Path {
             }
         }
 
+        // adds last character
         factorizedPath = factorizedPath + " " +  count + lastCharacter;
         
         this.setPath(factorizedPath);
 
-    }
+    } // end of factorizePath method
 
-    public void validatePath(String path) {
-        
-    }
-}
+} // end of Path class

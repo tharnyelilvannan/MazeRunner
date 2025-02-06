@@ -14,10 +14,12 @@ public class PathVerifier {
 
         Compass compass = new Compass();
 
+        // follows each instruction in path
         for (int i = 0; i < (pathToVerify.length() - 1); i++) {
 
             if (Character.toString(pathToVerify.charAt(i)).equals("F")) {
 
+                // moves forward
                 if (direction == Direction.EAST) {
                     if (maze.getMaze().get(currentRow).get(currentCol + 1).getCanPass()) {
                         currentCol++;
@@ -38,22 +40,35 @@ public class PathVerifier {
                         currentRow++;
                     }
                 }
+
             }
             else if (Character.toString(pathToVerify.charAt(i)).equals("R")) {
+
+                // turns right
                 direction = compass.turnRight(direction);
+
             }
             else if (Character.toString(pathToVerify.charAt(i)).equals("L")) {
-                direction = compass.turnLeft(direction);
-            }
-        }
 
+                // turns left
+                direction = compass.turnLeft(direction);
+
+            }
+
+        } // end of for loop
+
+        // if not at exit point
         if (currentRow != exitRow || currentCol != exitCol) {
+
             System.out.println("This is not a correct path");
             return false;
+
         }
 
+        // if at exit point
         System.out.println("This is a correct path");
         return true;
-    }
 
-}
+    } // end of verifyPath method
+
+} // end of Path Verifier class

@@ -14,6 +14,8 @@ public class Explorer {
     {
         String canonPath = "";
 
+        Compass compass = new Compass();
+
         ArrayList<Integer> entry = new ArrayList<>(entryPoint.getPoint());
         ArrayList<Integer> exit = new ArrayList<>(exitPoint.getPoint());
        
@@ -22,9 +24,15 @@ public class Explorer {
         int exitRow = exit.get(0);
         int exitCol = exit.get(1);
 
+        // sets current position as entry point
         ArrayList<Integer> currentPosition = new ArrayList<>();
         currentPosition.add(entryRow);
         currentPosition.add(entryCol);
+
+        // explore until end of maze
+        while (currentPosition.get(0) != exitRow || currentPosition.get(1) != exitCol) {
+
+        }
 
         path.setPath(canonPath);
 

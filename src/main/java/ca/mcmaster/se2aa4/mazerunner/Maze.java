@@ -35,11 +35,11 @@ public class Maze {
                         maze.get(k).add(mazePart);
                     }
 
-                }
+                } // end of for loop
 
                 k++;
 
-            }
+            } // end of while loop
             
             logger.info("** Maze successfully read **");
 
@@ -49,7 +49,7 @@ public class Maze {
 
         }
                 
-    } // end of Maze constructor method
+    } // end of Maze method
 
     public ArrayList<ArrayList<MazeComposition>> getMaze() {
 

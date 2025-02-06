@@ -1,7 +1,10 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 public class Compass {
+
     public Direction turnRight(Direction direction) {
+
+        // sets new direction
         if (direction == Direction.EAST) {
             direction = Direction.SOUTH;
         }
@@ -16,9 +19,12 @@ public class Compass {
         }
 
         return direction;
-    }
+
+    } // end of turnRight method
 
     public Direction turnLeft(Direction direction) {
+
+        // sets new direction
         if (direction == Direction.EAST) {
             direction = Direction.NORTH;
         }
@@ -33,5 +39,7 @@ public class Compass {
         }
 
         return direction;
-    }
-}
+
+    } // end of turnLeft direction
+
+} // end of Compass class

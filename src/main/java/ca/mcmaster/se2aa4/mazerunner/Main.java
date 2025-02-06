@@ -24,10 +24,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // add command line options
         Options options = new Options();
         options.addOption("i", true, "MAZE_FILE");
         options.addOption("p", true, "VERIFY");
         options.addOption("help", false, "HELP");
+
         CommandLineParser parser = new DefaultParser();
 
         try {
@@ -36,6 +38,7 @@ public class Main {
 
             if (cmd.hasOption("help")) {
 
+                // help flag
                 System.out.println("USAGE: java -jar target/mazerunner -i [file path]");
                 System.out.println("USAGE: java -jar target/mazerunner -i [file path] -p [maze path to verify]");
                 System.out.println("i takes a maze as input and outputs a path.");
@@ -44,25 +47,36 @@ public class Main {
             }
             else if (cmd.hasOption("i") && (cmd.hasOption("p"))) {
 
+                // verify path given
+
                 logger.info("** Starting Maze Runner **");
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
 
                 Maze maze = new Maze(args[1]);
+
                 Entry entry = new Entry();
                 entry.findEntry(maze);
                 ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
+
                 Exit exit = new Exit();
                 exit.findExit(maze);
                 ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
+
                 PathVerifier pathVerifier = new PathVerifier();
+
                 Path path = new Path();
-                logger.info("**** Verifying path ****");
                 path.setPath(args[3]);
+
+                logger.info("**** Verifying path ****");
+
                 pathVerifier.verifyPath(maze, entry, exit, path);
+
                 logger.info("** End of MazeRunner **");
 
             }
             else if (cmd.hasOption("i")) {
+
+                // explores the maze and outputs path
 
                 logger.info("** Starting Maze Runner **");
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
@@ -87,18 +101,25 @@ public class Main {
                 }
 
                 Maze maze = new Maze(args[1]);
+
                 Entry entry = new Entry();
                 entry.findEntry(maze);
                 ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
+
                 Exit exit = new Exit();
                 exit.findExit(maze);
                 ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
-                Explorer explorer = new Explorer();
-                logger.info("**** Computing path ****");
+
                 Path path = new Path();
+
+                Explorer explorer = new Explorer();
                 explorer.explore(maze, entry, exit, path);
+
+                logger.info("**** Computing path ****");
+
                 path.factorizePath();
                 System.out.println("Path: " + path.getPath());
+
                 logger.info("** End of MazeRunner **");
 
             }

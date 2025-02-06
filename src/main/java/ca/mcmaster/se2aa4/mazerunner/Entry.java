@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public class Entry extends MazeLocation {
 
     public ArrayList<Integer> getPoint() {
+
         return point;
-    }
+
+    } // end of getPoint method
 
     public void setPoint(ArrayList<Integer> point) {
+
         this.point = point;
-    }
+
+    } // end of setPoint method
 
     public void findEntry(Maze maze) throws Exception {
         ArrayList<Integer> entryPoint = new ArrayList<>();
@@ -21,13 +25,16 @@ public class Entry extends MazeLocation {
             }
         }
 
-        if (entryPoint.size() > 1) {
-            throw new Exception("Invalid maze. Multiple entry points.");
+        // if more than one entry point or none
+        if (entryPoint.size() != 1) {
+            throw new Exception("Invalid maze. Multiple or no entry points.");
         }
 
         // point has coordinates (i, 0)
         entryPoint.add(0);
 
         this.setPoint(entryPoint);
-    }
-}
+
+    } // end of findEntry method
+
+} // end of Entry class
