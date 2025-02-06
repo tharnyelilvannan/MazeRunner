@@ -29,10 +29,12 @@ public class Explorer {
         currentPosition.add(entryRow);
         currentPosition.add(entryCol);
 
+        Direction direction = Direction.EAST;
+
         // explore until end of maze
         while (currentPosition.get(0) != exitRow || currentPosition.get(1) != exitCol) {
 
-        }
+        } // end of while loop
 
         path.setPath(canonPath);
 
