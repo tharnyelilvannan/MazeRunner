@@ -37,6 +37,7 @@ public class Main {
             if (cmd.hasOption("help")) {
 
                 System.out.println("USAGE: java -jar target/mazerunner -i [file path]");
+                System.out.println("USAGE: java -jar target/mazerunner -i [file path] -p [maze path to verify]");
                 System.out.println("i takes a maze as input and outputs a path.");
                 System.out.println("p verifies a path");
 
@@ -56,7 +57,7 @@ public class Main {
                 PathVerifier pathVerifier = new PathVerifier();
                 Path path = new Path();
                 logger.info("**** Verifying path ****");
-                path.setPath(args[2]);
+                path.setPath(args[3]);
                 pathVerifier.verifyPath(maze, entry, exit, path);
                 logger.info("** End of MazeRunner **");
 
