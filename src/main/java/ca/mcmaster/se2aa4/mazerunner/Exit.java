@@ -21,7 +21,7 @@ public class Exit extends MazeLocation {
 
         // get all exits for the maze
         for (int i = 0; i < maze.getMaze().get(0).size() - 1; i++) {
-            if (maze.getMaze().get(i).get(maze.getMaze().get(0).size() - 1) instanceof Pass) {
+            if (maze.getMaze().get(i).get(maze.getMaze().get(0).size() - 1).getCanPass()) {
                 exitPoint.add(i);
             }
         } // end of for loop

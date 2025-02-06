@@ -20,7 +20,7 @@ public class Entry extends MazeLocation {
         ArrayList<Integer> entryPoint = new ArrayList<>();
 
         for (int i = 0; i < maze.getMaze().get(0).size() - 1 ; i++) {
-            if (maze.getMaze().get(i).get(0) instanceof Pass) {
+            if (maze.getMaze().get(i).get(0).getCanPass()) {
                 entryPoint.add(i);
             }
         }

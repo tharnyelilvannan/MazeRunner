@@ -9,7 +9,7 @@ import main.java.ca.mcmaster.se2aa4.mazerunner.Entry;
 import main.java.ca.mcmaster.se2aa4.mazerunner.Exit;
 import main.java.ca.mcmaster.se2aa4.mazerunner.Path;
 import main.java.ca.mcmaster.se2aa4.mazerunner.PathVerifier;
-import main.java.ca.mcmaster.se2aa4.mazerunner.Explorer;
+import main.java.ca.mcmaster.se2aa4.mazerunner.RightHandRuleExplorer;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -112,8 +112,10 @@ public class Main {
 
                 Path path = new Path();
 
-                Explorer explorer = new Explorer();
-                explorer.explore(maze, entry, exit, path);
+                RightHandRuleExplorer explorer = new RightHandRuleExplorer();
+                String canonPath = explorer.explore(maze, entry, exit);
+
+                path.setPath(canonPath);
 
                 logger.info("**** Computing path ****");
 
