@@ -30,6 +30,7 @@ public class RightHandRuleExplorer extends Explorer {
         int currentCol = entryCol;
         Direction direction = Direction.EAST;
 
+        // sets location for the "fork in the road"
         int forkRow = entryRow;
         int forkCol = entryCol;
         Direction forkDirection = Direction.EAST;
@@ -43,12 +44,58 @@ public class RightHandRuleExplorer extends Explorer {
         while (currentRow != exitRow || currentCol != exitCol) {
 
             try {
-                north = maze.getMaze().get(currentRow - 1).get(currentCol).getCanPass();
-                east = maze.getMaze().get(currentRow).get(currentCol + 1).getCanPass();
-                south = maze.getMaze().get(currentRow + 1).get(currentCol).getCanPass();
-                west = maze.getMaze().get(currentRow).get(currentCol - 1).getCanPass();
-            } catch (Exception e) {
+                if (currentRow != 0 && currentRow != maze.getMaze().size()) {
+                    north = maze.getMaze().get(currentRow - 1).get(currentCol).getCanPass();
+                    east = maze.getMaze().get(currentRow).get(currentCol + 1).getCanPass();
+                    south = maze.getMaze().get(currentRow + 1).get(currentCol).getCanPass();
+                    west = maze.getMaze().get(currentRow).get(currentCol - 1).getCanPass();
 
+                    if (!north && !south && east) {
+                        // go east
+                        currentCol++;
+
+                        if (direction == Direction.EAST) {
+                            canonPath = canonPath + "F";
+                        }
+                        else if (direction ==  Direction.NORTH) {
+                            direction = compass.turnRight(direction);
+                            canonPath = canonPath + "RF";
+                        }
+                        else if (direction == Direction.SOUTH) {
+                            direction = compass.turnLeft(direction);
+                            canonPath = canonPath + "LF";
+                        }
+                        else if (direction == Direction.WEST) {
+                            direction = compass.turnLeft(direction);
+                            direction = compass.turnLeft(direction);
+                            canonPath = canonPath + "LLF";
+                        }
+                    }
+                    else if (!south && !east && north) {
+                        // go north
+                        currentRow--;
+
+                        if (direction == Direction.NORTH) {
+                            canonPath = canonPath + "F";
+                        }
+                        else if (direction == Direction.SOUTH) {
+                            direction = compass.turnRight(direction);
+                            direction = compass.turnRight(direction);
+                            canonPath = canonPath + "RRF";
+
+                        }
+                        else if (direction == Direction.EAST) {
+                            direction = compass.turnLeft(direction);
+                            canonPath = canonPath + "LF";
+                        }
+                        else if (direction == Direction.WEST) {
+                            direction = compass.turnRight(direction);
+                            canonPath = canonPath + "RF";
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
 
 
