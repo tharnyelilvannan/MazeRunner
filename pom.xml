@@ -9,8 +9,8 @@
 
   <groupId>io.github.ace-lectures.2aa4</groupId>
   <!-- Replace this with your MacId. E.g., mine would be a1-mossers -->
-  <artifactId>a1-elilvant</artifactId>
-  <version>1.0</version>
+  <artifactId>a3-elilvant</artifactId>
+  <version>2.0</version>
   <name>McMaster :: SFWRENG :: 2AA4 :: Maze Runner</name>
 
   <properties>
@@ -36,11 +36,27 @@
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.10.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.17.0</version>
+    </dependency>
   </dependencies>
 
   <build>
     <finalName>mazerunner</finalName>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
