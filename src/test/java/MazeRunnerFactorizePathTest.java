@@ -4,13 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.beans.Transient;
-
 import main.java.ca.mcmaster.se2aa4.mazerunner.Path;
 
 public class MazeRunnerFactorizePathTest {
     Path path;
-    
+
     @BeforeEach
     void initializePath() {
         path = new Path();
