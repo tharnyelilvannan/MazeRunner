@@ -25,6 +25,9 @@ jobs:
           distribution: 'adopt'
           cache: 'maven'
 
-      # Building the turnkey artefact
+      # Building the turnkey artfact
       - name: Create executable jar with Maven
         run: mvn clean package -DskipTests
+      # Running tests
+      - name: Running tests
+        run: mvn --batch-mode test
