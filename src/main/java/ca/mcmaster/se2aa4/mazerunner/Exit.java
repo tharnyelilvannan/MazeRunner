@@ -3,6 +3,18 @@ import java.util.ArrayList;
 
 public class Exit extends MazeLocation {
 
+    private static Exit instance = null;
+
+    private Exit() {
+    }
+
+    public static Exit get() {
+        if (instance == null) {
+            instance = new Exit();
+        }
+        return instance;
+    }
+
     public ArrayList<Integer> getPoint() {
 
         return point;

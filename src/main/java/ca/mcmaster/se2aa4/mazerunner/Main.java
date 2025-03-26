@@ -58,17 +58,17 @@ public class Main {
 
                 Maze maze = new Maze(args[1]);
 
-                Entry entry = new Entry();
+                Entry entry = Entry.get();
                 entry.findEntry(maze);
                 ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
 
-                Exit exit = new Exit();
+                Exit exit = Exit.get();
                 exit.findExit(maze);
                 ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
 
                 PathVerifier pathVerifier = new PathVerifier();
 
-                Path path = new Path();
+                Path path = Path.get();
                 path.setPath(args[3]);
 
                 logger.info("**** Verifying path ****");
@@ -106,15 +106,15 @@ public class Main {
 
                 Maze maze = new Maze(args[1]);
 
-                Entry entry = new Entry();
+                Entry entry = Entry.get();
                 entry.findEntry(maze);
                 ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
 
-                Exit exit = new Exit();
+                Exit exit = Exit.get();
                 exit.findExit(maze);
                 ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
 
-                Path path = new Path();
+                Path path = Path.get();
 
                 RightHandRuleExplorer explorer = new RightHandRuleExplorer();
                 String canonPath = explorer.explore(maze, entry, exit);

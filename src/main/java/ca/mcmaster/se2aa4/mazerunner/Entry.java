@@ -4,6 +4,18 @@ import java.util.ArrayList;
 
 public class Entry extends MazeLocation {
 
+    private static Entry instance = null;
+
+    private Entry() {
+    }
+
+    public static Entry get() {
+        if (instance == null) {
+            instance = new Entry();
+        }
+        return instance;
+    }
+
     public ArrayList<Integer> getPoint() {
 
         return point;
