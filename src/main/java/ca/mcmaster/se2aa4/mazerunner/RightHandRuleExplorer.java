@@ -5,34 +5,29 @@ import java.util.ArrayList;
 public class RightHandRuleExplorer extends Explorer {
 
     // sets canonical path
-    public String explore(Maze maze, Entry entryPoint, Exit exitPoint)
+    public String findPath()
     {
-        String canonPath = "";
-
         Compass compass = new Compass();
-        ArrayList<Integer> entry = new ArrayList<>(entryPoint.getPoint());
-        ArrayList<Integer> exit = new ArrayList<>(exitPoint.getPoint());
        
-        int entryRow = entry.get(0);
-        int entryCol = entry.get(1);
-        int exitRow = exit.get(0);
-        int exitCol = exit.get(1);
+        int entryRow = entryPoint.get(0);
+        int entryCol = entryPoint.get(1);
+        int exitRow = exitPoint.get(0);
+        int exitCol = exitPoint.get(1);
 
         // sets current position as entry point
         int currentRow = entryRow;
         int currentCol = entryCol;
         Direction rightHandWall = Direction.SOUTH;
 
-        // sets location for the "fork in the road"
+        // make first move, almost always move forward eastward
+        canonPath = canonPath + "F";
+        currentCol++;
 
+        // declare direction
         Boolean north;
         Boolean east;
         Boolean south;
         Boolean west;
-
-        // make first move, almost always move forward eastward
-        canonPath = canonPath + "F";
-        currentCol++;
 
         // explore until end of maze
         // algorithm partially inspired by: https://cs.stanford.edu/people/eroberts/courses/cs106b/handouts/16-RecursiveBacktracking.pdf

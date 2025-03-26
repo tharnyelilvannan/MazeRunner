@@ -28,7 +28,8 @@ public class Entry extends MazeLocation {
 
     } // end of setPoint method
 
-    public void findEntry(Maze maze) throws Exception {
+    public void findEntry() throws Exception {
+        Maze maze = Maze.get();
 
         ArrayList<Integer> entryPoint = new ArrayList<>();
         int mazeSize = maze.getMaze().size() - 1;

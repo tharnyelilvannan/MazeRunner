@@ -2,7 +2,11 @@ package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 public class PathVerifier {
 
-    public Boolean verifyPath(Maze maze, Entry entryPoint, Exit exitPoint, Path path) {
+    public Boolean verifyPath() {
+        Maze maze = Maze.get();
+        Entry entryPoint = Entry.get();
+        Exit exitPoint = Exit.get();
+        Path path = Path.get();
 
         String pathToVerify = path.getPath();
         int currentRow = entryPoint.getPoint().get(0);

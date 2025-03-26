@@ -27,7 +27,9 @@ public class Exit extends MazeLocation {
 
     } // end of setPoint method
 
-    public void findExit(Maze maze) throws Exception {
+    public void findExit() throws Exception {
+
+        Maze maze = Maze.get();
 
         ArrayList<Integer> exitPoint = new ArrayList<>();
 

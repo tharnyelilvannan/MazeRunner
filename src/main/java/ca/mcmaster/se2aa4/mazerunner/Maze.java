@@ -9,10 +9,24 @@ import org.apache.logging.log4j.Logger;
 
 public class Maze {
 
+    private static Maze instance = null;
+
     private ArrayList<ArrayList<MazeComposition>> maze = new ArrayList<>();
     private static final Logger logger = LogManager.getLogger();
 
-    public Maze(String file) {
+    private Maze() {
+    }
+
+    public static Maze get() {
+        if (instance == null) {
+            instance = new Maze();
+        }
+        return instance;
+    }
+
+    public void setMaze(String file) {
+
+        this.maze.clear();
 
         String line;
         int k = 0;
@@ -53,7 +67,7 @@ public class Maze {
 
     public ArrayList<ArrayList<MazeComposition>> getMaze() {
 
-        return maze;
+        return this.maze;
 
     } // end of getMaze method
     
