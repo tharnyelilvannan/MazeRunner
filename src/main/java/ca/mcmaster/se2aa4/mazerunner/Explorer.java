@@ -2,8 +2,11 @@ package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-abstract class Explorer {
+abstract class Explorer extends Observer {
+    private static final Logger logger = LogManager.getLogger();
     Entry entry;
     Exit exit;
     Maze maze;
@@ -12,18 +15,28 @@ abstract class Explorer {
     List<Integer> exitPoint;
     String canonPath = "";
 
-    public void explore() throws Exception {
-        entry = Entry.get();
-        exit = Exit.get();
-        path = Path.get();
+    Explorer(Maze maze) {
+        this.maze = maze;
+        this.subject = maze;
+        subject.attach(this);
+    }
+
+    public void update() throws Exception {
+        this.explore(this.maze);
+    }
+
+    public void explore(Maze maze) throws Exception {
+        entry = new Entry(maze);
+        exit = new Exit(maze);
 
         entry.findEntry();
         exit.findExit();
 
         entryPoint = entry.getPoint();
         exitPoint = exit.getPoint();
-        Maze maze = Maze.get();
 
+        Path path = Path.get();
+    
         canonPath = findPath();
 
         path.setPath(canonPath);

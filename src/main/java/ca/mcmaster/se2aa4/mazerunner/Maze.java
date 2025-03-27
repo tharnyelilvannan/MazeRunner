@@ -3,26 +3,14 @@ package main.java.ca.mcmaster.se2aa4.mazerunner;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.io.FileReader;
-import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Maze {
-
-    private static Maze instance = null;
+public class Maze extends Subject {
 
     private ArrayList<ArrayList<MazeComposition>> maze = new ArrayList<>();
     private static final Logger logger = LogManager.getLogger();
 
-    private Maze() {
-    }
-
-    public static Maze get() {
-        if (instance == null) {
-            instance = new Maze();
-        }
-        return instance;
-    }
 
     public void setMaze(String file) {
 
@@ -62,6 +50,7 @@ public class Maze {
             logger.error(e.getMessage());
 
         }
+        notifyAllObservers();
                 
     } // end of Maze method
 

@@ -1,27 +1,23 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Exit extends MazeLocation {
+public class Exit implements MazeLocation {
 
-    private static Exit instance = null;
+    List<Integer> point = new ArrayList<>();
+    Maze maze;
 
-    private Exit() {
+    public Exit(Maze maze) {
+        this.maze = maze;
     }
 
-    public static Exit get() {
-        if (instance == null) {
-            instance = new Exit();
-        }
-        return instance;
-    }
-
-    public ArrayList<Integer> getPoint() {
+    public List<Integer> getPoint() {
 
         return point;
 
     } // end of getPoint method
 
-    public void setPoint(ArrayList<Integer> point) {
+    public void setPoint(List<Integer> point) {
 
         this.point = point;
 
@@ -29,13 +25,11 @@ public class Exit extends MazeLocation {
 
     public void findExit() throws Exception {
 
-        Maze maze = Maze.get();
-
         ArrayList<Integer> exitPoint = new ArrayList<>();
 
         // get all exits for the maze
-        for (int i = 0; i < maze.getMaze().size() - 1; i++) {
-            if (maze.getMaze().get(i).get(maze.getMaze().get(0).size() - 1).getCanPass()) {
+        for (int i = 0; i < this.maze.getMaze().size() - 1; i++) {
+            if (this.maze.getMaze().get(i).get(this.maze.getMaze().get(0).size() - 1).getCanPass()) {
                 exitPoint.add(i);
             }
         } // end of for loop
@@ -45,7 +39,7 @@ public class Exit extends MazeLocation {
             throw new Exception("Invalid maze. Multiple or no exit points.");
         }
 
-        exitPoint.add(maze.getMaze().get(0).size() - 1);
+        exitPoint.add(this.maze.getMaze().get(0).size() - 1);
         this.setPoint(exitPoint);
 
     } // end of findExit method

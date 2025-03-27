@@ -10,14 +10,17 @@ import org.junit.jupiter.api.Order;
 import java.util.ArrayList;
 
 import main.java.ca.mcmaster.se2aa4.mazerunner.Entry;
+import main.java.ca.mcmaster.se2aa4.mazerunner.Maze;
 
 public class MazeRunnerFindEntryTest {
 
     Entry entry;
+    Maze maze;
 
     @BeforeEach
     void initializeEntry() {
-        entry = Entry.get();
+        maze = new Maze();
+        entry = new Entry(maze);
         ArrayList<Integer> point = new ArrayList();
         point.add(3);
         point.add(0);

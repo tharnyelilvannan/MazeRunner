@@ -55,26 +55,16 @@ public class Main {
 
                 logger.info("** Starting Maze Runner **");
                 logger.info("**** Reading the maze from file " + args[1] + " ****");
-
-                Maze maze = Maze.get();
+                Maze maze = new Maze();
                 maze.setMaze(args[1]);
 
-                Entry entry = Entry.get();
-                entry.findEntry();
-                ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
-
-                Exit exit = Exit.get();
-                exit.findExit();
-                ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
-
                 PathVerifier pathVerifier = new PathVerifier();
-
                 Path path = Path.get();
                 path.setPath(args[3]);
 
                 logger.info("**** Verifying path ****");
 
-                pathVerifier.verifyPath();
+                pathVerifier.verifyPath(maze, path);
 
                 logger.info("** End of MazeRunner **");
 
@@ -105,21 +95,11 @@ public class Main {
 
                 }
 
-                Maze maze = Maze.get();
+                Maze maze = new Maze();
+                RightHandRuleExplorer explorer = new RightHandRuleExplorer(maze);
+
                 maze.setMaze(args[1]);
-
-                Entry entry = Entry.get();
-                entry.findEntry();
-                ArrayList<Integer> entryPoint = new ArrayList<>(entry.getPoint());
-
-                Exit exit = Exit.get();
-                exit.findExit();
-                ArrayList<Integer> exitPoint = new ArrayList<>(exit.getPoint());
-
                 Path path = Path.get();
-
-                RightHandRuleExplorer explorer = new RightHandRuleExplorer();
-                explorer.explore();
 
                 logger.info("**** Computing path ****");
 

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class RightHandRuleExplorer extends Explorer {
 
+    public RightHandRuleExplorer(Maze maze) {
+        super(maze);
+    }
+
     // sets canonical path
     public String findPath()
     {

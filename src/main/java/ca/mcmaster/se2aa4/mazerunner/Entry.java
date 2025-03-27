@@ -1,41 +1,36 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Entry extends MazeLocation {
+public class Entry implements MazeLocation {
 
-    private static Entry instance = null;
+    List<Integer> point = new ArrayList<>();
+    Maze maze;
 
-    private Entry() {
+    public Entry(Maze maze) {
+        this.maze = maze;
     }
 
-    public static Entry get() {
-        if (instance == null) {
-            instance = new Entry();
-        }
-        return instance;
-    }
-
-    public ArrayList<Integer> getPoint() {
+    public List<Integer> getPoint() {
 
         return point;
 
     } // end of getPoint method
 
-    public void setPoint(ArrayList<Integer> point) {
+    public void setPoint(List<Integer> point) {
 
         this.point = point;
 
     } // end of setPoint method
 
     public void findEntry() throws Exception {
-        Maze maze = Maze.get();
 
         ArrayList<Integer> entryPoint = new ArrayList<>();
-        int mazeSize = maze.getMaze().size() - 1;
+        int mazeSize = this.maze.getMaze().size() - 1;
 
         for (int i = 0; i < mazeSize; i++) {
-            if (maze.getMaze().get(i).get(0).getCanPass()) {
+            if (this.maze.getMaze().get(i).get(0).getCanPass()) {
                 entryPoint.add(i);
             }
         }

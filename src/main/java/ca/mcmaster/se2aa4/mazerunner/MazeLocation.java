@@ -1,14 +1,12 @@
 package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
-abstract class MazeLocation {
+interface MazeLocation {
 
-    // coordinates of the location
-    protected ArrayList<Integer> point;
+    abstract public List<Integer> getPoint();
 
-    abstract public ArrayList<Integer> getPoint();
-
-    abstract public void setPoint(ArrayList<Integer> point);
+    abstract public void setPoint(List<Integer> point);
 
 } // end of MazeLocation class

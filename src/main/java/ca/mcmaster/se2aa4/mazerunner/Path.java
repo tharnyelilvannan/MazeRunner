@@ -27,7 +27,7 @@ public class Path {
 
     public String getPath() {
 
-        return path;
+        return this.path;
 
     } // end of getPath method
 
