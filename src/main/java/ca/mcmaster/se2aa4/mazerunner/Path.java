@@ -6,17 +6,6 @@ public class Path {
 
     private String path = "";
     private boolean mustFactorize;
-    private static Path instance = null;
-
-    private Path() {
-    }
-
-    public static Path get() {
-        if (instance == null) {
-            instance = new Path();
-        }
-        return instance;
-    }
 
     public void setPath(String path) {
 

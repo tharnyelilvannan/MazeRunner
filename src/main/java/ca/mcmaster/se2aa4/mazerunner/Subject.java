@@ -18,7 +18,7 @@ public abstract class Subject {
         this.observers.remove(observer);
     }
 
-    public void notifyAllObservers() {
+    public void notifyExplorer() {
 
         try {
             for (Observer observer: observers) {

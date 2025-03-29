@@ -2,11 +2,8 @@ package main.java.ca.mcmaster.se2aa4.mazerunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-abstract class Explorer extends Observer {
-    private static final Logger logger = LogManager.getLogger();
+abstract public class Explorer extends Observer {
     Entry entry;
     Exit exit;
     Maze maze;
@@ -35,7 +32,7 @@ abstract class Explorer extends Observer {
         entryPoint = entry.getPoint();
         exitPoint = exit.getPoint();
 
-        Path path = Path.get();
+        path = new Path();
     
         canonPath = findPath();
 
@@ -44,5 +41,9 @@ abstract class Explorer extends Observer {
     }
 
     abstract String findPath();
+
+    public Path getPath() {
+        return this.path;
+    }
 
 } // end of Explorer class

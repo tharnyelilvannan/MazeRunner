@@ -25,9 +25,8 @@ public class PathVerifier {
             int exitCol = exitPoint.getPoint().get(1);
             Direction direction = Direction.EAST;
 
-            Compass compass = new Compass();
-
             // follows each instruction in path
+            // if there is one invalid forward move, entire path is wrong
             for (int i = 0; i < (pathToVerify.length() - 1); i++) {
 
                 if (Character.toString(pathToVerify.charAt(i)).equals("F")) {
@@ -37,20 +36,36 @@ public class PathVerifier {
                         if (maze.getMaze().get(currentRow).get(currentCol + 1).getCanPass()) {
                             currentCol++;
                         }
+                        else {
+                            System.out.println("This is not a correct path");
+                            return false;
+                        }
                     }
                     else if (direction == Direction.WEST) {
                         if (maze.getMaze().get(currentRow).get(currentCol - 1).getCanPass()) {
                             currentCol--;
+                        }
+                        else {
+                            System.out.println("This is not a correct path");
+                            return false;
                         }
                     }
                     else if (direction == Direction.NORTH) {
                         if (maze.getMaze().get(currentRow - 1).get(currentCol).getCanPass()) {
                             currentRow--;
                         }
+                        else {
+                            System.out.println("This is not a correct path");
+                            return false;
+                        }
                     }
                     else if (direction == Direction.SOUTH) {
                         if (maze.getMaze().get(currentRow + 1).get(currentCol).getCanPass()) {
                             currentRow++;
+                        }
+                        else {
+                            System.out.println("This is not a correct path");
+                            return false;
                         }
                     }
 
@@ -58,13 +73,13 @@ public class PathVerifier {
                 else if (Character.toString(pathToVerify.charAt(i)).equals("R")) {
 
                     // turns right
-                    direction = compass.turnRight(direction);
+                    direction = Compass.turnRight(direction);
 
                 }
                 else if (Character.toString(pathToVerify.charAt(i)).equals("L")) {
 
                     // turns left
-                    direction = compass.turnLeft(direction);
+                    direction = Compass.turnLeft(direction);
 
                 }
 

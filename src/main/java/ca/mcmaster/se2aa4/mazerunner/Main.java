@@ -59,7 +59,7 @@ public class Main {
                 maze.setMaze(args[1]);
 
                 PathVerifier pathVerifier = new PathVerifier();
-                Path path = Path.get();
+                Path path = new Path();
                 path.setPath(args[3]);
 
                 logger.info("**** Verifying path ****");
@@ -99,11 +99,11 @@ public class Main {
                 RightHandRuleExplorer explorer = new RightHandRuleExplorer(maze);
 
                 maze.setMaze(args[1]);
-                Path path = Path.get();
 
                 logger.info("**** Computing path ****");
 
-                path.factorizePath();
+                explorer.getPath().factorizePath();
+                Path path = explorer.getPath();
                 System.out.println("Path: " + path.getPath());
 
                 logger.info("** End of MazeRunner **");

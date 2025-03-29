@@ -15,7 +15,7 @@ public class MazeRunnerFactorizePathTest {
 
     @BeforeEach
     void initializePath() {
-        path = Path.get();
+        path = new Path();
     }
 
     @Test
