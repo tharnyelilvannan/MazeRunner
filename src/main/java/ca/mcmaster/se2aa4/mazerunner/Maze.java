@@ -50,7 +50,8 @@ public class Maze extends Subject {
             logger.error(e.getMessage());
 
         }
-        notifyExplorer();
+        
+        notifyObservers();
                 
     } // end of Maze method
 

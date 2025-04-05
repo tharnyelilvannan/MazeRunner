@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class Subject {
+    
     private List<Observer> observers = new ArrayList<Observer>();
     private static final Logger logger = LogManager.getLogger();
 
@@ -18,7 +19,7 @@ public abstract class Subject {
         this.observers.remove(observer);
     }
 
-    public void notifyExplorer() {
+    public void notifyObservers() {
 
         try {
             for (Observer observer: observers) {

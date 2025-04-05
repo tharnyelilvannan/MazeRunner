@@ -1,11 +1,8 @@
 package test.java;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 
@@ -28,13 +25,11 @@ public class MazeRunnerFindEntryTest {
     }
 
     @Test
-    @Order(1)
     void entryGeneralXCoordinate() {
         assertEquals(entry.getPoint().get(0), 3);
     }
 
     @Test
-    @Order(2)
     void entryGeneralYCoordinate() {
         assertEquals(entry.getPoint().get(1), 0);
     }

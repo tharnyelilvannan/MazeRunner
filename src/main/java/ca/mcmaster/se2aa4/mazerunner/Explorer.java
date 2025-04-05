@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract public class Explorer extends Observer {
+    
     Entry entry;
     Exit exit;
     Maze maze;

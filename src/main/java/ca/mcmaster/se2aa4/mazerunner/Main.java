@@ -43,6 +43,7 @@ public class Main {
             if (cmd.hasOption("help")) {
 
                 // help flag
+                System.out.println("Maze Runner, SFWRENG 2AA4 Assignment 3, Winter 2025");
                 System.out.println("USAGE: java -jar target/mazerunner -i [file path]");
                 System.out.println("USAGE: java -jar target/mazerunner -i [file path] -p [maze path to verify]");
                 System.out.println("i takes a maze as input and outputs a path.");

@@ -3,9 +3,6 @@ package test.java;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.Order;
 
 import java.util.ArrayList;
 
@@ -31,7 +28,6 @@ public class MazeRunnerPathVerifierTest {
     }
 
     @Test
-    @Order(1)
     void pathVerifierGeneralTest() {
         maze.setMaze("./examples/small.maz.txt");
         path.setPath("FFFFFFFFFFFFFFFFLFFFFFLFLFLF");
@@ -40,7 +36,6 @@ public class MazeRunnerPathVerifierTest {
     }
 
     @Test
-    @Order(2)
     void pathVerifierGeneralTest2() {
         maze.setMaze("./examples/small.maz.txt");
         path.setPath("FRFLLFFRFFRFFLLFFFFRFFRFFFFLLFFRFFFFRFFRFFLLFFLFFLFFFFRFFRFFLLFFFFRFFRFFLLFFRFFRFFFFRFFLFFRFFLFF");
@@ -49,7 +44,6 @@ public class MazeRunnerPathVerifierTest {
     }
 
     @Test
-    @Order(3)
     void pathVerifierExtraLeftTest() {
         maze.setMaze("./examples/small.maz.txt");
         path.setPath("FRFLLLLLLFFRFFRFFLLLLLLFFFFRFFRFFFFLLLLLLFFRFFFFRFFRFFLLLLLLFFLFFLLLLLFFFFRFFRFFLLLLLLFFFFRFFRFFLLFFRFFRFFFFRFFLFFRFFLLLLLFF");
@@ -58,7 +52,6 @@ public class MazeRunnerPathVerifierTest {
     }
 
     @Test
-    @Order(4)
     void pathVerifierExtraRightTest() {
         maze.setMaze("./examples/small.maz.txt");
         path.setPath("FRFLLFFRRRRRFFRRRRRFFLLFFFFRRRRRFFRRRRRFFFFLLFFRRRRRFFFFRFFRFFLLFFLFFLFFFFRFFRFFLLFFFFRRRRRFFRFFLLFFRRRRRFFRRRRRFFFFRRRRRRRRRFFLFFRFFLFF");
@@ -67,7 +60,6 @@ public class MazeRunnerPathVerifierTest {
     }
 
     @Test
-    @Order(5)
     void pathVerifierExtraLeftAndRightTest() {
         maze.setMaze("./examples/small.maz.txt");
         path.setPath("LRLRLRLRRRLLFRFLRLLRLFFRFFRFFLLRLFFFFRFFRLRFFFFLLLRFFRFFFFRFFRLRFFLLFLRFLFFLFFLRFFLRRFFRLRFFLLFFFFRFFRFFLLFFRFLRFRFFFFRFFLFRLFRFFLFF");
@@ -76,7 +68,6 @@ public class MazeRunnerPathVerifierTest {
     }
 
     @Test
-    @Order(6)
     void pathVerifierOffByOneTest() {
         maze.setMaze("./examples/small.maz.txt");
         // removed first "F"
